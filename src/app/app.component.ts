@@ -30,5 +30,11 @@ export class AppComponent {
       wifi: true,
       laundry: true
     }
-  ]
+  ];
+
+  selectedLocation: HousingLoaction | undefined;
+  
+  updateSelectedLocation(location: HousingLoaction) {
+    this.selectedLocation = location;
+  }
 }

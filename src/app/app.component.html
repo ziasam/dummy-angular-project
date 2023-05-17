@@ -1,10 +1,18 @@
 <main>
   <header>
-    <img src="C:\Users\Youtech bd\Pictures\Camera Roll\photo_2023-02-27_17-44-45.jpg" >House Zephyrus
+    <img src="https://mysanmar.com/wp-content/uploads/2021/09/Sanmar-Green-Park-680x510.png" width="50px" alt="Chittagong"> House Chittagong
   </header>
   <section>
-    <app-housing-list [locationList]="housingLocationList">
-
+    <app-housing-list [locationList]="housingLocationList" (selectedLocationEvent)="updateSelectedLocation($event)">
     </app-housing-list>
   </section>
+  <article>
+    <ng-container *ngIf="selectedLocation">
+      <p>{{selectedLocation?.name}}</p>
+      <p>{{selectedLocation?.city}}</p>
+      <p>{{selectedLocation?.state}}</p>
+      <p>{{selectedLocation?.wifi ? "Has Wifi" : "Does not have Wifi"}}</p>
+      <p>{{selectedLocation?.laundry ? "Has laundry" : "Does not have laundry"}}</p>
+    </ng-container>
+  </article>
 </main>
