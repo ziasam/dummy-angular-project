@@ -9,6 +9,7 @@ import { HousingLoaction } from '../housing-loaction';
 export class HousingListComponent  implements OnInit{
 
   @Input() locationList: HousingLoaction[] = [];
+  results:HousingLoaction[] = [];
   constructor() {}
   ngOnInit(): void {
     throw new Error('Method not implemented.');
@@ -16,6 +17,7 @@ export class HousingListComponent  implements OnInit{
 
   searchLocations(search: string) {
     console.log(search);
-
+    if(!search) return;
+    this.results = this.locationList.filter(location => location.city.toLowerCase().includes(search.toLowerCase()));
   }
 }
